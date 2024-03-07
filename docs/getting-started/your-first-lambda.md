@@ -105,3 +105,43 @@ The second half of the function is to build the Response object, set the status 
 One thing that might look a touch odd if you are new to Rust is this `Ok(resp)`.  Rust makes use of a Enums quite a bit.  Enums in Rust are a bit different than other languages.  For now, just know that the `Result` enum can either be a value or an Error.  `Ok()` returns the value portion of the Result enum.  In this case, the response.
 
 ## Running the Lambda Locally
+
+Cargo Lambda does more than generate a project structure.  It also provides a local testing engine.  In order to test your new Lambda function first do the following.
+
+In a separate terminal window run the following command in the project directory.
+
+```bash
+cargo lambda watch
+```
+
+What you'll see is your Lambda code will first be compiled and then Cargo Lambda will be "watching" for changes.  What's nice about this approach is that it's quick and responsive so that as you change code in your handler, it'll be ready to execute.
+
+Now in the opposite terminal, you need to send a test event to your Lambda in order to exercise the functionality.
+
+```bash 
+cargo lambda invoke --data-example apigw-request
+```
+
+Running invoke with `--data-example` will pull example requests from the Cargo Lambda GitHub repository.  For this first Lambda, a sample request is just fine.
+
+The output for running the above will look like the below.
+
+```json
+{
+    "statusCode": 200,
+    "headers": {
+        "content-type": "application/json"
+    },
+    "multiValueHeaders": {
+        "content-type": [
+            "application/json"
+        ]
+    },
+    "body": "Hello me, this is an AWS Lambda HTTP request",
+    "isBase64Encoded": false
+}
+```
+
+## Congrats!
+
+You have now built and tested your first Lambda and Rust function!
