@@ -9,10 +9,10 @@ Why hello there 👋 welcome to serverlessrust.dev. I'm guessing you're here to 
 
 Whether you are brand new to serverless development or a seasoned professional this site has a little bit of everything. 
 
-I'd recommend starting with the [Your First Lambda](./docs/category/your-first-lambda) tutorial first. From there, feel free to have a look around.
+I'd recommend starting with the [Your First Lambda](./getting-started/your-first-lambda) tutorial first. From there, feel free to have a look around.
 
 If you'd like to contribute or noticed one of my inevitable spelling mistakes then please raise an issue on the GitHub repo.
 
 Otherwise, happy coding! 
 
-James
+James and Benjamen
