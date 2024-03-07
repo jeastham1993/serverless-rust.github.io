@@ -55,12 +55,14 @@ For instance, the `lambda_http` dependency just includes a version after the `=`
 
 ### Single source file
 
+<CH.Section>
+
 #### Main Function
-Rust is like a lot of languages that require a `main` function as the entry point into your application.  A Rust Lambda looks just like a normal Rust console program.  
+Rust is like a lot of languages that require a [`main`](focus://1) function as the entry point into your application.  A Rust Lambda looks just like a normal Rust console program.  
 
-One thing to note is the `tokio` macro.  Macros in Rust are signals to the compiler to generate some code based upon the macros' definition.
+One thing to note is the [`tokio macro`](focus://1[3:13]) macro.  Macros in Rust are signals to the compiler to generate some code based upon the macros' definition.
 
-The tokio macro allows the `main` function to run asynchronous, which is what the Lambda handler function requires.
+The tokio macro allows the [`main`](focus://2[10:14]) function to run asynchronous, which is what the Lambda handler function requires.
 
 
 ```rust
@@ -73,9 +75,11 @@ async fn main() -> Result<(), Error> {
 ```
 
 The `run` and `service_fn` are a part of the `lambda_http` crate that we saw in the Cargo.toml file.  The run function handles polling of the Lambda Runtime APIs.
+</CH.Section>
 
 #### Handler Function
 
+<CH.Section>
 Let's take a look through this handler that was created when running `cargo new`.
 
 ```rust
@@ -98,11 +102,13 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 }
 ```
 
-The first part of this handler is extracting name from the query string parameters.  If the there are no parameters, then when the parameter is unwrapped, if empty it will return "world".
+The [first part of this handler](focus://3:7) is extracting name from the query string parameters.  If the there are no parameters, then when the parameter is unwrapped, if empty it will return "world".
 
-The second half of the function is to build the Response object, set the status to 200, and then set the content type to `application/json`.
+The [second half of the function](focus://11:15) is to build the Response object, set the status to 200, and then set the content type to `application/json`.
 
-One thing that might look a touch odd if you are new to Rust is this `Ok(resp)`.  Rust makes use of a Enums quite a bit.  Enums in Rust are a bit different than other languages.  For now, just know that the `Result` enum can either be a value or an Error.  `Ok()` returns the value portion of the Result enum.  In this case, the response.
+One thing that might look a touch odd if you are new to Rust is this [`Ok(resp)`](focus://16[5:13]).  Rust makes use of a Enums quite a bit.  Enums in Rust are a bit different than other languages.  For now, just know that the `Result` enum can either be a value or an Error.  `Ok()` returns the value portion of the Result enum.  In this case, the response.
+
+</CH.Section>
 
 ## Running the Lambda Locally
 
