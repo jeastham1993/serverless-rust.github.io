@@ -5,7 +5,7 @@ description: Handle table changes with a Lambda
 keywords: [rust,lambda,dynamodb,change data capture]
 ---
 
-Serverless applications often use DynamoDB as their database technology.  DynamoDB handles tremendous scale, provides a simple yet powerful API, is 100% Serverless, and paired with the AWS SDK can be a key piece of an application.  DynamoDB can also serve as the starting point for a powerful architectual pattern called change data capture.  Change data capture is the process of propogating data changes so that other parts of the application can participate in those changes.  DynamoDB supports CDC by offering the capability called DynamoDB Streams.  Streams can be connected to a Lambda via a trigger or they can be connected to Kinesis.  This pattern below highlights how to handle CDC with DynamoDB via a Lambda trigger.
+Serverless applications often use DynamoDB as their database technology.  DynamoDB handles tremendous scale, provides a simple yet powerful API, is 100% Serverless, and paired with the AWS SDK can be a key piece of an application.  DynamoDB can also serve as the starting point for a powerful architectual pattern called change data capture (CDC).  Change data capture is the process of propogating data changes so that other parts of the application can participate in those changes.  DynamoDB supports CDC by offering the capability called DynamoDB Streams.  Streams can be connected to a Lambda via a trigger or they can be connected to Kinesis.  This pattern below highlights how to handle CDC with DynamoDB via a Lambda trigger.
 
 ## Sample Solution
 
