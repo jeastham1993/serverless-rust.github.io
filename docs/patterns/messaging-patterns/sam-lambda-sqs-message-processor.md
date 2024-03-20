@@ -5,7 +5,7 @@ description: Lambda function for processing messages from an SQS queue
 keywords: [rust,lambda,sqs,messaging,point to point channels]
 ---
 
-Queueing is a vital part of almost every serverless system. The ability to pass messages between different services gives you looser coupling, whilst providing an element of durability of messages in flight. Queues are an example of a point to point integration pattern. Typically a 1:1 relationship between the producer of the message, and the consumer of the message.
+Queueing is a vital part of almost every serverless system. The ability to pass messages between different services gives you looser coupling whilst providing an element of durability of messages in flight. Queues are an example of a point to point integration pattern. Typically a 1:1 relationship between the producer of the message and the consumer of the message.
 
 Amazon Simple Queue Service (SQS) was the first AWS service ever released (it's a close fought thing with SQS and Amazon S3), all the way back in 2007. If you're looking to introduce queueing to your system, using SQS, Rust and AWS Lambda then this is the article for you.
 
