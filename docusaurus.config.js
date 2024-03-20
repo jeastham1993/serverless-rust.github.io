@@ -1,11 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const {themes} = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
 
-const theme = require('shiki/themes/nord.json')
 const { remarkCodeHike } = require('@code-hike/mdx')
+
+var path = require('path');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -33,6 +35,21 @@ const config = {
 
   themes: ['mdx-v2'],
 
+  plugins: [
+    () => ({
+      name: 'resolve-react',
+      configureWebpack() {
+        return {
+          resolve: {
+            alias: {
+              // assuming root node_modules is up from "./packages/<your-docusaurus>
+              react: path.resolve('node_modules/react'), 
+            },
+          },
+        };
+      },
+    }),
+  ],
   presets: [
     [
       'classic',
@@ -40,11 +57,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          beforeDefaultRemarkPlugins: [[remarkCodeHike, { theme }]],
+          beforeDefaultRemarkPlugins: [[remarkCodeHike, { darkTheme }]],
         },
         blog: {
           showReadingTime: true,
@@ -83,7 +96,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'why-rust',
             position: 'left',
             label: 'Docs',
           },
@@ -102,7 +115,7 @@ const config = {
             items: [
               {
                 label: 'Docs',
-                to: '/docs/intro',
+                to: '/docs/why-rust',
               },
             ],
           },
@@ -127,8 +140,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Serverless Rust. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
       },
     }),
 }
