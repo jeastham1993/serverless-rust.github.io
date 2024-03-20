@@ -46,9 +46,7 @@ async fn main() -> Result<(), Error> {
 }
  ```
 
-One thing to note is the [`tokio macro`](focus://1[3:13]) macro.  Macros in Rust are signals to the compiler to generate some code based upon the macros' definition.
-
-The tokio macro allows the [`main`](focus://2[10:14]) function to run asynchronous, which is what the Lambda handler function requires.
+One thing to note is the [`tokio macro`](focus://1[3:13]) macro.  Macros in Rust are signals to the compiler to generate some code based upon the macros' definition. The tokio macro allows the [`main`](focus://2[10:14]) function to run asynchronous, which is what the Lambda handler function requires.
 
 It's worth noting, that this [`main`](focus://2[10:14]) function example would work for almost all Lambda Event Sources. The difference coming when moving on to the function_handler itself.
 
@@ -80,7 +78,7 @@ As you learned earlier, Lambda receives your SQS messages in batches. When your 
 
 
 ```rust
-async fn function_handler(event: LambdaEvent<SqsEvent>) 
+async fn function_handler(event: LambdaEvent<SqsEvent>)
     -> Result<SqsBatchResponse, Error> {
     let mut batch_item_failures = Vec::new();
 
@@ -96,9 +94,9 @@ async fn function_handler(event: LambdaEvent<SqsEvent>)
 
 ---
 
-Inside the for loop, you can handle individual messages. For re-usability, a custom [`InternalSqsMessage`](focus://7) struct is used as a wrapper around the `SqsMessage` type that comes from the [Lambda events Crate](https://docs.rs/aws_lambda_events/latest/aws_lambda_events/). This allows the [`try_into()`](focus://7) function to be used to handle the conversion from the custom SQS type into the `NewMessage` type used by the application.
+Inside the for loop, you can handle individual messages. For re-usability, a custom [`InternalSqsMessage`](focus://9) struct is used as a wrapper around the `SqsMessage` type that comes from the [Lambda events Crate](https://docs.rs/aws_lambda_events/latest/aws_lambda_events/). This allows the [`try_into()`](focus://9) function to be used to handle the conversion from the custom SQS type into the `NewMessage` type used by the application.
 
-You'll notice that if a failure occurs either in the [initial message parsing](focus://7) or the actual [handling of the message](focus://17) a new `BatchItemFailure` is pushed onto the `batch_item_failures` that are returned. This allows you to support partial completions in your SQS sourced Lambda functions.
+You'll notice that if a failure occurs either in the [initial message parsing](focus://9) or the actual [handling of the message](focus://19) a new `BatchItemFailure` is pushed onto the `batch_item_failures` that are returned. This allows you to support partial completions in your SQS sourced Lambda functions.
 
 ```rust
 async fn function_handler(event: LambdaEvent<SqsEvent>) 
@@ -106,12 +104,14 @@ async fn function_handler(event: LambdaEvent<SqsEvent>)
     let mut batch_item_failures = Vec::new();
 
     for message in event.payload.records {
+        let message_id = message.message_id.clone().unwrap_or("".to_string());
+
         let new_message: Result<NewMessage, MessageParseError> 
             = InternalSqsMessage::new(message.clone()).try_into();
 
         if new_message.is_err() {
             batch_item_failures.push(BatchItemFailure{
-                item_identifier: message.clone().message_id.unwrap()
+                item_identifier: message_id
             });
             continue;
         }
@@ -121,7 +121,7 @@ async fn function_handler(event: LambdaEvent<SqsEvent>)
 
         if handle_result.is_err() {
             batch_item_failures.push(BatchItemFailure{
-                item_identifier: message.clone().message_id.unwrap()
+                item_identifier: message_id
             });
             continue;
         }

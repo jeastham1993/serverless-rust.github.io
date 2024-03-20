@@ -5,12 +5,18 @@ use shared::{InternalSqsMessage, MessageParseError, NewMessage, NewMessageHandle
 async fn function_handler(event: LambdaEvent<SqsEvent>) -> Result<SqsBatchResponse, Error> {
     let mut batch_item_failures = Vec::new();
 
-    for message in event.payload.records {
+    for message in &event.payload.records {
+        let message_id = message.message_id.clone().unwrap_or("".to_string());
+
+        if message_id.len() == 0 {
+            continue;
+        }
+
         let new_message: Result<NewMessage, MessageParseError> = InternalSqsMessage::new(message.clone()).try_into();
 
         if new_message.is_err() {
             batch_item_failures.push(BatchItemFailure{
-                item_identifier: message.clone().message_id.unwrap()
+                item_identifier: message_id
             });
             continue;
         }
@@ -20,7 +26,7 @@ async fn function_handler(event: LambdaEvent<SqsEvent>) -> Result<SqsBatchRespon
 
         if handle_result.is_err() {
             batch_item_failures.push(BatchItemFailure{
-                item_identifier: message.clone().message_id.unwrap()
+                item_identifier: message_id
             });
             continue;
         }
