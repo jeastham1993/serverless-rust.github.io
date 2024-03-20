@@ -57,5 +57,5 @@ It's important to manage error handling when using poll based invokes. For examp
 ### Used In
 
 - Amazon DynamoDB steams
-- Amazon Kinesis
+- [Amazon Kinesis](/docs/patterns/messaging-patterns/sam-lambda-kinesis-message-processor.md)
 - [Amazon SQS](/docs/patterns/messaging-patterns/sam-lambda-sqs-message-processor.md)
