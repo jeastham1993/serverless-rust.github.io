@@ -17,7 +17,7 @@ Synchronous invokes are how services like API Gateway integrate with Lambda. The
 
 ### Used In
 
-- [API Gateway](/docs/event-sources/api-gw-http)
+- API Gateway
 - Application Load Balancers
 - Amazon Cognito
 - Amazon Lex
@@ -37,12 +37,12 @@ It is possible to trace how long a request spends on the queue using the _`dwell
 
 ### Used In
 
-- [Amazon SNS](/docs/event-sources/sns)
-- [Amazon S3 Events](/docs/event-sources/s3)
+- Amazon SNS
+- Amazon S3 Events
 - Amazon SES
 - AWS CloudFormation
 - Amazon CloudWatch Logs
-- [Amazon Event Bridge](/docs/event-sources/event-bridge)
+- Amazon Event Bridge
 - AWS CodeCommit
 - AWS Config
 
@@ -58,4 +58,4 @@ It's important to manage error handling when using poll based invokes. For examp
 
 - Amazon DynamoDB steams
 - Amazon Kinesis
-- [Amazon SQS](/docs/event-sources/sqs)
+- [Amazon SQS](/docs/patterns/messaging-patterns/sam-lambda-sqs-message-processor.md)
