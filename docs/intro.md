@@ -9,7 +9,7 @@ Are cost, sustainability and performance something you value as a developer? A s
 
 In his [2023 re:Invent Keynote Dr. Werner Vogels](https://www.youtube.com/watch?v=UTRBVPvzt9w) introduced the idea of [The Frugal Architect](https://www.thefrugalarchitect.com). Quoting directly from the website, they are a 
 
-> Set of simple laws for building cost-aware, sustainable and modern architectures
+> Set of simple laws for building cost-aware, sustainable and modern architectures - Dr. Werner Vogels
 
 The Frugal Architect follows 7 laws and these laws are covered in depth [on the website](https://www.thefrugalarchitect.com). These laws are:
 
@@ -29,24 +29,26 @@ Roughly an [hour and 2 minutes (who's counting)](https://youtu.be/UTRBVPvzt9w?t=
 
 For anyone who's tried to program in C++, you might recoil slightly at the first suggestion there. Re-writing entire systems into C++ might not be the most practical solution. But Rust, now we are talking.
 
-As well as giving you cost, performance and sustainability benefits. Rust is also extremely secure, gives you strong typing, memory safety and has a hype train so long that the Stack Overflow Developer Survey should really start re-branding itself to the 'What's the second best language because we know Rust is #1 survey?'... Name to be worked on.
+As well as giving you cost, performance and sustainability benefits. Rust is also extremely secure, gives you strong typing, memory safety and has a hype train so long that the Stack Overflow Developer Survey should really start re-branding itself to the "What's the second best language because we know Rust is #1 survey?"
 
-This isn't a suggestion you should go right now and re-write every part of your system in Rust. There is more to consider in a wider organisational context than just the programming language itself. Developer skills, re-training, the simple fingers on keyboard time needed to re-write something that exists.
+This isn't a suggestion that you should go right now and re-write every part of your system in Rust.  It's not even that you should abandon your current development toolchain for Rust as there is more to consider in a wider organisational context than just the programming language itself. Developer skills, re-training, the simple fingers on keyboard time needed to re-write something that exists.
 
-But as you start to think about building new things, Rust should be at the top of your mind. Wether you are running your application on a server, a container or using serverless technologies.
+However, if you are looking for a language that is fast, effecient, safe, and a joy to program with, then you should stronly consider Rust.  And as you start to think about building new things, Rust should be at the top of your mind. Whether you are running your application on a server, a container or using serverless technologies. 
 
-And when you couple Rust's performance and low resource consumption with serverless services that are cost you money *per millisecond* that your code is running. Well, you have a match made in heaven.
+And when you couple Rust's performance and low resource consumption with serverless services that are cost you money *per millisecond* that your code is running. Rust is tailormade for Servelress.
 
-If you've got this far and not immediately ran to start re-implementing your system in Rust then thankyou for sticking around. What we wanted to put together with this website is a resource, a tool and a set of templates that allow you to quickly get started bringing Rust into your serverless systems. 
+If you've gotten this far and not immediately running to start re-implementing your system in Rust then thank you for sticking around. What we wanted to put together with this website is a resource, a tool and a set of templates that allow you to quickly get started with bringing Rust into your serverless systems.  Some of the patterns and template are cut in a way that you can drop your own business logic and just get started.  It also contains resources and tips that we wish we had when we first started with Rust and serverless.
 
-Giving you the ability to focus on implementing your systems in Rust, without worrying how that fits into the wider serverless ecosystem.
+By laying out some of these patterns and techniniques, our hope is that it will give you the ability to focus on implementing your systems in Rust, without worrying how that fits into the wider serverless ecosystem.
 
-I'd recommend starting with the [Your First Lambda](./getting-started/your-first-lambda) tutorial first. From there, feel free to have a look around. A quick call-out, this website isn't hear to teach you the deep internals of the Rust language. Nor is it going to teach you about serverless architectures. There are plenty of fantastic resources on the internet covering those topics.
+I'd recommend starting with the [Your First Lambda](./getting-started/your-first-lambda) tutorial first. From there, feel free to have a look around. 
+
+A quick call-out, this website isn't hear to teach you the deep internals of the Rust language. Nor is it going to teach you about serverless architectures. There are plenty of fantastic resources on the internet covering those topics.
 
 What we aim to give you, is a resource you can come back to over and over again as you start to build out your serverless Rust systems.
 
 If you'd like to contribute or noticed one of our inevitable spelling mistakes (or rogue Oxford commas) then please raise an issue on the GitHub repo.
 
-Otherwise, happy coding! 
+Otherwise, happy building! 
 
 James and Benjamen
