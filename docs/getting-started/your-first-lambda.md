@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Your First Rust Lambda
 description: Build your first Rust Lambda
 keywords: [rust,lambda]
