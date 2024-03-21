@@ -9,6 +9,8 @@ Serverless applications often use DynamoDB as their database technology.  Dynamo
 
 ## Sample Solution
 
+A template for this pattern can be found under the [./templates](https://github.com/jeastham1993/serverless-rust.github.io/tree/main/templates/patterns/database-patterns/ddb-stream-lambda-handler/) directory in the GitHub repo. You can use the template to get started building with DynamoDB Streams and Lambda.
+
 The record structure that comes from DynamoDB is consistent depending upon the change type that you have configured.  For more details about the shape of the payload, [AWS' documentation](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_Record.html) can describe the purpose of the fields and definitions.
 
 Below are three main chunks of this sample solution.
