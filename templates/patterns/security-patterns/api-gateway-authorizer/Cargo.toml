@@ -1,5 +1,5 @@
 [workspace]
-members = ["lambdas/handler", "lambdas/shared"]
+members = ["source/token-authorizer", "source/shared"]
 resolver = "2"
 
 [workspace.package]

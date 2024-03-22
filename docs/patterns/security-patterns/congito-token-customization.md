@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Cognito Token Customization
 description: Lambda function for customizing Cognito Access and ID tokens
 keywords: [rust,lambda,cognito,security]
@@ -250,4 +250,4 @@ _ID Token_
 
 ## Congratulations
 
-Congratulations, you know have a Rust Lambda Function that handles the Cognito Token Customization hook which allows overriding claims in the ID and Access Token!
+Congratulations, you now have a Rust Lambda Function that handles the Cognito Token Customization hook which allows overriding claims in the ID and Access Token!
