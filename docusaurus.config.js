@@ -14,7 +14,7 @@ const config = {
   title: 'Serverless Rust',
   tagline: 'Your One Stop Shop For All Things Serverless Rust',
   url: 'https://serverlessrust.dev',
-  baseUrl: '/',
+  baseUrl: '/serverless-rust.github.io/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
