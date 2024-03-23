@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Kinesis Message Processor
 description: Lambda function for processing messages from a Kinesis stream
 keywords: [rust,lambda,kinesis,messaging,streaming data]

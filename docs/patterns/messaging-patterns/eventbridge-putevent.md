@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 title: EventBridge PutEvent
 description: Lambda function for sending a PutEvent to an EventBus
 keywords: [rust,lambda,eventbridge,messaging,putevent]
