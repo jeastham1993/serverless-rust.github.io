@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
-title: Lambda per Verb
-description: Lambda API per Verb
+sidebar_position: 2
+title: Lambda Function per Verb
+description: Lambda Function API per Verb
 keywords: [rust,lambda,api gateway]
 ---
 
